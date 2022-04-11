@@ -1,9 +1,9 @@
 import { AppBar, Toolbar, Typography, Tabs, Tab } from '@mui/material'
 import LocalGroceryStoreRoundedIcon from '@mui/icons-material/LocalGroceryStore'
 
-import styled from '@emotion/styled';
-
 import { useState } from 'react';
+
+import "./navbar.css";
 
 
 // Need to add responsiveness
@@ -21,9 +21,9 @@ const Navbar = () => {
                         <Tab label="Men"></Tab>
                         <Tab label="Women"></Tab>
                     
-                    <Typography variant='h4' >
-                        A&N
-                    </Typography>
+                    
+                    <img className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="Woman and denim shirt"/>
+                    
                         <Tab label="Sale"></Tab>
                         <Tab label="About"></Tab>
                     </Tabs>
