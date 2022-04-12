@@ -1,0 +1,9 @@
+.navCard {
+    letter-spacing: 1px;
+}
+
+.navCard:hover {
+    background: black;
+    color: white;
+    transition: 0.3s;
+}
