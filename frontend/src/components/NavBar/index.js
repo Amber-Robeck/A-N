@@ -15,15 +15,15 @@ const Navbar = () => {
         <>
             <AppBar position="fixed" sx={{ background: '#063970' }} >
                 <Toolbar>
-                    <Tabs sx={{ margin: 'auto' }} textColor="inherit" 
-                    value={value} 
-                    onChange={(e, value) => setValue(value)} indicatorColor="secondary">
+                    <Tabs sx={{ margin: 'auto' }} textColor="inherit"
+                        value={value}
+                        onChange={(e, value) => setValue(value)} indicatorColor="secondary">
                         <Tab label="Men"></Tab>
                         <Tab label="Women"></Tab>
-                    
-                    
-                    <img className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="Woman and denim shirt"/>
-                    
+
+
+                        <img className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="A&N logo" />
+
                         <Tab label="Sale"></Tab>
                         <Tab label="About"></Tab>
                     </Tabs>

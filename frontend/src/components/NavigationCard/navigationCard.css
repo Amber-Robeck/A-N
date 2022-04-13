@@ -1,5 +1,7 @@
 .navCard {
     letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .navCard:hover {
