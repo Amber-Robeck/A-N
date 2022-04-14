@@ -19,24 +19,21 @@ const DUMMY_PRODUCTS = [
     },
     {
         id: 3,
-        name: "Dell lattitude",
-        imgURL:
-            "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        name: "Flannel Button-up",
+        imgURL: "https://litb-cgis.rightinthebox.com/images/640x853/202108/bps/product/inc/wbcahs1629864169796.jpg?fmt=webp&v=1",
         price: 25,
     },
     {
         id: 4,
-        name: "HP Pavillion",
-        imgURL:
-            "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        price: 25,
+        name: "Denim long sleeve",
+        imgURL: "https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_progressive,w_392,c_scale/v1/NA/Style/ECOMM/M1BH02D14LB-ACDI",
+        price: 22,
     },
     {
         id: 5,
-        name: "Acer Aspire",
-        imgURL:
-            "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        price: 25,
+        name: "Flannel short sleeve",
+        imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZA2EFa0nzl11jTVLcKRvifqxqw7ZN2OV5uQ&usqp=CAU",
+        price: 17,
     },
 ];
 const Products = () => {

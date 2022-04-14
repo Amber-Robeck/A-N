@@ -78,12 +78,15 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import "./navbar.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
+import Cart from "../Cart"
 const pages = ['men', 'women', 'sale', 'about'];
 const cart = ['View Cart', 'Checkout'];
 
 const Navbar = () => {
-    
+    const dispatch = useDispatch();
+    const showCart = () => { dispatch(cartActions.setShowCart()); };
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -112,7 +115,7 @@ const Navbar = () => {
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
                         <Link to="/">
-                        <img href="/" className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="A&N logo" />
+                            <img href="/" className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="A&N logo" />
                         </Link>
                     </Box>
 
@@ -148,7 +151,7 @@ const Navbar = () => {
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link style={{textDecoration: "none", color: 'black'}} to={`/${page}`}>{page}</Link>
+                                        <Link style={{ textDecoration: "none", color: 'black' }} to={`/${page}`}>{page}</Link>
                                     </Typography>
                                 </MenuItem>
                             ))}
@@ -160,7 +163,7 @@ const Navbar = () => {
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
                         <Link to="/">
-                        <img href="/" className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="A&N logo" />
+                            <img href="/" className="logo" src={`${process.env.PUBLIC_URL}/assets/images/android-chrome-512x512.png`} alt="A&N logo" />
                         </Link>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -171,7 +174,7 @@ const Navbar = () => {
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
 
-                                <Link className="links" style={{textDecoration: "none", color: 'white'}} to={`/${page}`}>{page}</Link>
+                                <Link className="links" style={{ textDecoration: "none", color: 'white' }} to={`/${page}`}>{page}</Link>
                             </Button>
                         ))}
                     </Box>
@@ -205,6 +208,7 @@ const Navbar = () => {
                             ))}
                         </Menu>
                     </Box>
+                    <Cart />
                 </Toolbar>
             </Container>
         </AppBar>
