@@ -42,3 +42,38 @@ li {
     border: none;
     background: rgb(10, 7, 24);
 }
+
+.cartMdl>.orderBtn {
+    width: 200px;
+    background: rgb(41, 10, 77);
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 10%, 10%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.cartMdl>.orderBtn:hover {
+    background: rgb(39, 24, 56);
+}
+
+.cartMdl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* bgcolor: background.paper; */
+    border: 2px solid #000;
+    /* boxShadow: 24; */
+    /* p: 4; */
+    background-color: #fbeaeb;
+}
+
+.cartMdl>.closeBtn {
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    right: 1rem;
+}
