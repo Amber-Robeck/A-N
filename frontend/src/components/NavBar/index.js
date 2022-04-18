@@ -122,11 +122,11 @@ const Navbar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
-                            aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+
                         >
                             <MenuIcon />
                         </IconButton>
@@ -151,7 +151,7 @@ const Navbar = () => {
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link style={{ textDecoration: "none", color: 'black' }} to={`/${page}`}>{page}</Link>
+                                        <Link style={{ textDecoration: "none", color: 'black', ariaSelected: true }} to={`/${page}`}>{page}</Link>
                                     </Typography>
                                 </MenuItem>
                             ))}
