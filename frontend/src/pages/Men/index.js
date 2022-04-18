@@ -7,7 +7,7 @@ import CollectionDescription from "../../components/CollectionDescription";
 const Mens = () => {
     return (
         <>
-        <Container maxWidth={false}>
+        <Container maxWidth="xl">
             <Typography className="collectionTitle" variant="h2" marginTop={15}>
                 men's clothing
             </Typography>

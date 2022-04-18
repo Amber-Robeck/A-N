@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 import Product from "./Product/Product.js";
 const DUMMY_PRODUCTS = [
@@ -38,7 +39,7 @@ const DUMMY_PRODUCTS = [
 ];
 const Products = () => {
     return (
-        <div>
+        <Box>
             <ul className="products-container">
                 {DUMMY_PRODUCTS.map((product, index) => (
                     <li key={index}>
@@ -51,7 +52,7 @@ const Products = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </Box>
     );
 };
 

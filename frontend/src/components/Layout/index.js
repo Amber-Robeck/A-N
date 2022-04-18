@@ -1,6 +1,7 @@
 import React from "react";
 import Products from "../Products";
 import { useSelector } from "react-redux";
+import { Box } from "@mui/material";
 
 
 const Layout = () => {
@@ -13,9 +14,9 @@ const Layout = () => {
     const showCart = useSelector((state) => state.cart.showCart);
 
     return (
-        <div className="layout">
+        <Box className="layout">
             <Products />
-        </div>
+        </Box>
     );
 };
 
