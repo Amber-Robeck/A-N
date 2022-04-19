@@ -7,7 +7,7 @@ const CollectionDescriptionWomens = () => {
     return ( 
     
     <Box className="description">
-        <img className="mensHero" src={`${process.env.PUBLIC_URL}/assets/images/engin-akyurt-Sp4u9YqV1Zk-unsplash.jpg`} alt="stylish woman by the sea" />
+        <img className="womensHero" src={`${process.env.PUBLIC_URL}/assets/images/engin-akyurt-Sp4u9YqV1Zk-unsplash.jpg`} alt="stylish woman by the sea" />
 
         <Box>
             <Typography variant="h6" className="descriptionTitle">

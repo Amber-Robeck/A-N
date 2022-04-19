@@ -1,0 +1,16 @@
+.items {
+    margin-bottom: 30px;
+    padding: 10px 0 15px;
+    text-align: center !important;
+    justify-content: center !important;
+    background: #f8f8f8;
+}
+
+.singleItem {
+    justify-content: space-evenly;
+    line-height: 1.7;
+}
+
+.singleIcon {
+    justify-content: space-evenly;
+}
