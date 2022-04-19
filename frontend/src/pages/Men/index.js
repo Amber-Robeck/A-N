@@ -1,8 +1,8 @@
 import { Typography, Box, Container, Grid } from "@mui/material";
 import Layout from "../../components/Layout";
 import Filter from "../../components/Filter";
+import CollectionDescriptionMens from "../../components/CollectionDescriptionMens";
 import "./men.css";
-import CollectionDescription from "../../components/CollectionDescription";
 
 const Mens = () => {
     return (
@@ -18,7 +18,7 @@ const Mens = () => {
             </Grid>
             <Grid item xs={9}>
             
-            <CollectionDescription/>
+            <CollectionDescriptionMens/>
  
             <Layout />
             </Grid>

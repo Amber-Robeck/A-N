@@ -3,15 +3,15 @@ import { Box } from "@mui/system";
 
 import "./collectionDescription.css";
 
-const CollectionDescription = () => {
+const CollectionDescriptionWomens = () => {
     return ( 
     
     <Box className="description">
-        <img className="mensHero" src={`${process.env.PUBLIC_URL}/assets/images/keiron-crasktellanos-wr1VBs7SoBE-unsplash.jpg`} alt="stylish man sitting on wall" />
+        <img className="mensHero" src={`${process.env.PUBLIC_URL}/assets/images/engin-akyurt-Sp4u9YqV1Zk-unsplash.jpg`} alt="stylish woman by the sea" />
 
         <Box>
             <Typography variant="h6" className="descriptionTitle">
-                bringing new trends into the modern world
+                make an unforgettable impression
             </Typography>
             <Box>
                 <Typography className="extraText">
@@ -27,4 +27,4 @@ const CollectionDescription = () => {
     );
 }
  
-export default CollectionDescription;
+export default CollectionDescriptionWomens;

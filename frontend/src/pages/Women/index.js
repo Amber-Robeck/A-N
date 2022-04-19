@@ -1,11 +1,31 @@
-import { Typography } from "@mui/material";
+import { Typography, Box, Container, Grid } from "@mui/material";
+import Layout from "../../components/Layout";
+import Filter from "../../components/Filter";
+import CollectionDescriptionWomens from "../../components/CollectionDescriptionWomens";
+import "./women.css";
 
 const Womens = () => {
     return ( 
         <>
-        <Typography marginTop={15}>
-            Welcome to the women's page
-        </Typography>
+        <Container maxWidth="xl">
+            <Typography className="collectionTitle" variant="h2" marginTop={15}>
+                women's clothing
+            </Typography>
+            <Grid container spacing={0}>
+            {/* <Container> */}
+              <Grid item xs={3}>
+            <Filter/>
+            </Grid>
+            <Grid item xs={9}>
+            
+            <CollectionDescriptionWomens/>
+ 
+            <Layout />
+            </Grid>
+            </Grid>
+            </Container>
+            {/* </Container> */}
+            
         </>
      );
 }
