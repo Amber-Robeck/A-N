@@ -9,6 +9,7 @@
 .singleItem {
     justify-content: space-evenly !important;
     line-height: 1.7;
+    text-align: center !important;
 }
 
 .singleIcon {

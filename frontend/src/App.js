@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Mens from './pages/Men';
 import Womens from './pages/Women';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/men" element={<Mens />} />
         <Route path="/women" element={<Womens />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

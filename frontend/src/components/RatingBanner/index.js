@@ -50,7 +50,7 @@ const RatingBanner = () => {
                                 </LocalShippingOutlinedIcon>
                             </ListItem>
                             <ListItem className="singleItem">
-                                Free returns on
+                                free returns on
                                 <br></br>
                                 all purchases
                             </ListItem>
