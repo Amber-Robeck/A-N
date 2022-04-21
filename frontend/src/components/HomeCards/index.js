@@ -17,7 +17,7 @@ const HomeCards = () => {
         // marginTop={1}
         >
             <Grid item xs={2} sm={4} md={4}>
-            <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
+            <Paper className="transition"  elevation={0} square sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
             <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-Bd_I3IctjfQ-unsplash.jpg`} alt="stylish man sitting on wall"/>
@@ -36,7 +36,7 @@ const HomeCards = () => {
             </Grid>
 
             <Grid item xs={2} sm={4} md={4}>
-            <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
+            <Paper className="transition"  elevation={0} square sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
             <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-lq19sZ5pQ-c-unsplash.jpg`} alt="stylish man sitting on wall"/>
@@ -55,7 +55,7 @@ const HomeCards = () => {
             </Grid>
 
             <Grid item xs={2} sm={4} md={4}>
-            <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
+            <Paper className="transition"  elevation={0} square sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
             <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/alvin-mahmudov-DnJioJ8nhxI-unsplash.jpg`} alt="stylish man sitting on wall"/>
@@ -74,7 +74,7 @@ const HomeCards = () => {
             </Grid>
 
             <Grid item xs={2} sm={4} md={4}>
-            <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
+            <Paper className="transition"  elevation={0} square sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
             <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/tamara-bellis-68csPWTnafo-unsplash.jpg`} alt="stylish man sitting on wall"/>
@@ -93,7 +93,7 @@ const HomeCards = () => {
             </Grid>
 
             <Grid item xs={2} sm={4} md={4}>
-            <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
+            <Paper className="transition"  elevation={0} square sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
             <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/aromateec-EMzhgIxjPgI-unsplash.jpg`} alt="stylish man sitting on wall"/>
@@ -112,7 +112,7 @@ const HomeCards = () => {
             </Grid>
 
             <Grid item xs={2} sm={4} md={4}>
-            <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
+            <Paper className="transition"  elevation={0} square sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
             <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/jornada-produtora-aMEhfpU7Wg4-unsplash.jpg`} alt="stylish man sitting on wall"/>
@@ -129,32 +129,6 @@ const HomeCards = () => {
                 
             </Paper>
             </Grid>
-
-            {/* <Grid item xs={2} sm={4} md={4}>
-            <Paper elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
-            </Paper>
-            </Grid>
-
-            <Grid item xs={2} sm={4} md={4}>
-            <Paper elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
-            </Paper>
-            </Grid>
-
-            <Grid item xs={2} sm={4} md={4}>
-            <Paper elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
-            </Paper>
-            </Grid>
-
-            <Grid item xs={2} sm={4} md={4}>
-            <Paper elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
-            </Paper>
-            </Grid>
-
-            <Grid item xs={2} sm={4} md={4}>
-            <Paper elevation={1} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
-            </Paper>
-            </Grid> */}
-
 
         </Grid>
     </Box>

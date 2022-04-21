@@ -1,0 +1,8 @@
+.bottomLogo {
+    height: 25px;
+    width: 25px;
+    margin-top: 15px;
+    text-align: center !important;
+    align-items: center !important;
+    display: block;
+}
