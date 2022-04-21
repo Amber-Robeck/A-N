@@ -39,7 +39,7 @@ const HomeCards = () => {
             <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
-            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-Bd_I3IctjfQ-unsplash.jpg`} alt="stylish man sitting on wall"/>
+            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-lq19sZ5pQ-c-unsplash.jpg`} alt="stylish man sitting on wall"/>
             </Box>
 
             <Box className="lowerBox">
@@ -58,7 +58,7 @@ const HomeCards = () => {
             <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
-            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-Bd_I3IctjfQ-unsplash.jpg`} alt="stylish man sitting on wall"/>
+            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/alvin-mahmudov-DnJioJ8nhxI-unsplash.jpg`} alt="stylish man sitting on wall"/>
             </Box>
 
             <Box className="lowerBox">
@@ -77,14 +77,14 @@ const HomeCards = () => {
             <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
-            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-Bd_I3IctjfQ-unsplash.jpg`} alt="stylish man sitting on wall"/>
+            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/tamara-bellis-68csPWTnafo-unsplash.jpg`} alt="stylish man sitting on wall"/>
             </Box>
 
             <Box className="lowerBox">
                 <Paper
                 className="cardText" sx={{ margin: 2, marginLeft: 2.2, marginTop: 2.5, marginBotton: 2.2, padding: 2, border: 1, fontSize: 18 }} elevation={0} variant="outlined" square>
                    <span className="cardTitle">the floral</span>
-                    <span>bright hues and tints</span>
+                    <span>bright hues and contrast</span>
 
                 </Paper>
             </Box>
@@ -96,14 +96,14 @@ const HomeCards = () => {
             <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
-            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-Bd_I3IctjfQ-unsplash.jpg`} alt="stylish man sitting on wall"/>
+            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/aromateec-EMzhgIxjPgI-unsplash.jpg`} alt="stylish man sitting on wall"/>
             </Box>
 
             <Box className="lowerBox">
                 <Paper
                 className="cardText" sx={{ margin: 2, marginLeft: 2.2, marginTop: 2.5, marginBotton: 2.2, padding: 2, border: 1, fontSize: 18 }} elevation={0} variant="outlined" square>
                    <span className="cardTitle">the minimal</span>
-                    <span>patterns and designs</span>
+                    <span>simple and streamlined</span>
 
                 </Paper>
             </Box>
@@ -115,7 +115,7 @@ const HomeCards = () => {
             <Paper className="transition"  elevation={0} sx={{height: '425px', width: '350px', background: '#f8f8f8'}}>
               
             <Box className="transition">
-            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/ehimetalor-akhere-unuabona-Bd_I3IctjfQ-unsplash.jpg`} alt="stylish man sitting on wall"/>
+            <img className="homeCardImage" src={`${process.env.PUBLIC_URL}/assets/images/jornada-produtora-aMEhfpU7Wg4-unsplash.jpg`} alt="stylish man sitting on wall"/>
             </Box>
 
             <Box className="lowerBox">
