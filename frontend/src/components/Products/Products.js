@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import Product from "./Product/Product.js";
+import Product from "../Product/Product.js";
 const DUMMY_PRODUCTS = [
     {
         id: 1,

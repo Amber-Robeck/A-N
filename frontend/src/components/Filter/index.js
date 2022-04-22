@@ -17,55 +17,43 @@ const Filter = () => {
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="6.5" />
+        }} />} label="xxs" />
   <FormControlLabel control={<Checkbox sx={{
           color: '#696869',
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="7 - 7.5" />
+        }} />} label="xs" />
   <FormControlLabel control={<Checkbox sx={{
           color: '#696869',
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="8" />
+        }} />} label="s" />
   <FormControlLabel control={<Checkbox sx={{
           color: '#696869',
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="8.5 - 9" />
+        }} />} label="m" />
   <FormControlLabel control={<Checkbox sx={{
           color: '#696869',
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="9.5 - 10" />
+        }} />} label="l" />
   <FormControlLabel control={<Checkbox sx={{
           color: '#696869',
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="10.5" />
+        }} />} label="xl" />
   <FormControlLabel control={<Checkbox sx={{
           color: '#696869',
           '&.Mui-checked': {
             color: 'blueviolet',
           },
-        }} />} label="12" />
-        <FormControlLabel control={<Checkbox sx={{
-          color: '#696869',
-          '&.Mui-checked': {
-            color: 'blueviolet',
-          },
-        }} />} label="12.5 - 13" />
-        <FormControlLabel control={<Checkbox sx={{
-          color: '#696869',
-          '&.Mui-checked': {
-            color: 'blueviolet',
-          },
-        }} />} label="13.5" />
+        }} />} label="xxl" />
       </FormGroup>
     </Box>
 
@@ -130,6 +118,57 @@ const Filter = () => {
         }} />} label="white" />
       </FormGroup>
     </Box>
+
+    <Typography className="filterTitle">
+        collection:
+    </Typography>
+    <Box className="collectionSelector">
+    <FormGroup>
+  <FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="the flame" />
+
+<FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="the aqua" />
+
+<FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="the impression" />
+
+<FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="the floral" />
+
+<FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="the minimal" />
+
+<FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="the casual" />
+        </FormGroup>
+
+        
+        </Box>
 
 </Box> );
 }

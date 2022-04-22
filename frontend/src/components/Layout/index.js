@@ -1,5 +1,5 @@
 import React from "react";
-import Products from "../Products";
+import Products from "../Products/Products";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
