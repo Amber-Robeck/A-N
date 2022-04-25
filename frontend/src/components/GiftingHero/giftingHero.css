@@ -1,0 +1,13 @@
+.giftHero {
+    height: 900px;
+    width: 100%;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 31px !important;
+}

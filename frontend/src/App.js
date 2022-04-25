@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Mens from './pages/Men';
 import Womens from './pages/Women';
 import Footer from './components/Footer';
+import Gifting from './pages/Gifting';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/men" element={<Mens />} />
         <Route path="/women" element={<Womens />} />
+        <Route path="/gifting" element={<Gifting />} />
       </Routes>
       <Footer />
     </BrowserRouter>

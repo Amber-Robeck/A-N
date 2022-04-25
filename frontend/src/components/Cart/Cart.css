@@ -77,3 +77,8 @@ li {
     position: absolute;
     right: 1rem;
 }
+
+#modal-modal-title {
+    margin-left: 15px;
+    margin-top: 10px;
+}

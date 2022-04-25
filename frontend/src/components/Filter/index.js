@@ -58,6 +58,46 @@ const Filter = () => {
     </Box>
 
     <Typography className="filterTitle">
+        price:
+    </Typography>
+    <Box className="priceSelector">
+    <FormGroup>
+  <FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="$200-$150" />
+  <FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="$150-$100" />
+  <FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="$100-$50" />
+  <FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="$50-$25" />
+  <FormControlLabel control={<Checkbox sx={{
+          color: '#696869',
+          '&.Mui-checked': {
+            color: 'blueviolet',
+          },
+        }} />} label="$50-$5" />
+      </FormGroup>
+    </Box>
+
+
+
+    <Typography className="filterTitle">
         color:
     </Typography>
     <Box className="colorSelector">

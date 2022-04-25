@@ -81,7 +81,7 @@ import "./navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import Cart from "../Cart"
-const pages = ['men', 'women', 'sale', 'about'];
+const pages = ['men', 'women', 'gifting', 'about'];
 const cart = ['View Cart', 'Checkout'];
 
 const Navbar = () => {
