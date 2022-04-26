@@ -1,0 +1,23 @@
+.giftingImage {
+    background-repeat: no-repeat;
+    background-image: url("../../../public/assets/images/angela-bailey-jlo7Bf4tUoY-unsplash.jpg");
+  background-size: cover;
+    -webkit-background-composite: cover;
+    background-position: center;
+    display: flex;
+}
+
+.motherButton {
+    letter-spacing: 2px;
+    text-align: center;
+    text-decoration: none;
+    background-color: black;
+    color: white
+}
+
+
+.motherButton:hover {
+    background-color: rosybrown;
+    color: black;
+    transition: 0.3s;
+}
