@@ -16,17 +16,26 @@
     display: flex;
 }
 
+.giftCardGiftingImage {
+    background-repeat: no-repeat;
+    background-image: url("../../../public/assets/images/annie-spratt-W4ROulrlhE4-unsplash.jpg");
+  background-size: cover;
+    -webkit-background-composite: cover;
+    background-position: center;
+    display: flex;
+}
+
 .motherButton {
-    letter-spacing: 2px;
-    text-align: center;
-    text-decoration: none;
-    background-color: black;
-    color: white
+    letter-spacing: 2px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    background-color: black !important;
+    color: white !important;
 }
 
 
 .motherButton:hover {
-    background-color: rosybrown;
-    color: black;
-    transition: 0.3s;
+    background-color: rosybrown !important;
+    color: black !important;
+    transition: 0.3s !important;
 }
