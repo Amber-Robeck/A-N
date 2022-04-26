@@ -7,6 +7,15 @@
     display: flex;
 }
 
+.hisGiftingImage {
+    background-repeat: no-repeat;
+    background-image: url("../../../public/assets/images/nordwood-themes-Nv4QHkTVEaI-unsplash.jpg");
+  background-size: cover;
+    -webkit-background-composite: cover;
+    background-position: center;
+    display: flex;
+}
+
 .motherButton {
     letter-spacing: 2px;
     text-align: center;
