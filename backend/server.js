@@ -8,17 +8,17 @@ const mongoose = require("mongoose");
 
 
 
-// Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
+// // Serve static assets if in production
+// if (process.env.NODE_ENV === "production") {
 
-  // Set static folder
-  app.use(express.static("client/build"));
+//   // Set static folder
+//   app.use(express.static("client/build"));
 
-  // index.html for all page routes
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
-  });
-}
+//   // index.html for all page routes
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+//   });
+// }
 
 db.once('open', () => {
     console.log('Mongoose DB connection established.')
