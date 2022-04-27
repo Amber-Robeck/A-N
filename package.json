@@ -1,0 +1,28 @@
+{
+    "name": "a-and-n",
+    "version": "0.1.0",
+    "description": "",
+    "main": "server/server.js",
+    "scripts": {
+      "start": "node backend/server.js",
+      "develop": "concurrently \"cd backend && npm run watch\" \"cd client && npm start\"",
+      "install": "cd backend && npm i && cd ../frontend && npm i",
+      "build": "cd frontend && npm run build",
+      "seed": "cd backend && npm run seed"
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "homepage": "",
+    "devDependencies": {
+      "concurrently": "^5.1.0"
+    },
+    "dependencies": {
+      "mongoose": "^6.2.4"
+    }
+  }
+  

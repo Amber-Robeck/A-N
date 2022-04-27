@@ -11,7 +11,6 @@ const Gifting = () => {
                 <GiftingMessage/>
                 <GiftingSquares/>
             </Grid>
-
         </Box>
      );
 }
