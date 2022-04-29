@@ -12,6 +12,7 @@ import Womens from './pages/Women';
 import Footer from './components/Footer';
 import Gifting from './pages/Gifting';
 import SingleProduct from './pages/SingleProduct';
+import About from './pages/About';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/men/:productId" element={<SingleProduct />} />
         <Route path="/women" element={<Womens />} />
         <Route path="/gifting" element={<Gifting />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </BrowserRouter>
