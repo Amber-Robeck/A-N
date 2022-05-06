@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Gifting from './pages/Gifting';
 import SingleProduct from './pages/SingleProduct';
 import About from './pages/About';
+import Admin from './pages/Admin';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/women" element={<Womens />} />
         <Route path="/gifting" element={<Gifting />} />
         <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </BrowserRouter>

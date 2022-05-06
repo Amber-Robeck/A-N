@@ -1,28 +1,32 @@
-const express = require("express");
+const express = require('express');
+
 const app = express();
-const path = require("path");
-const db = require('../backend/config/connection');
+
+// const path = require("path");
+const db = require('./config/connection');
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
+const cors = require('cors');
+// Import routes
+const adminRoute = require('./routes/admin');
+
+//Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use('/admin', adminRoute);
 
 
+//Routes
+app.get('/', (req, res) => {
+  res.send('home route')
+});
 
 
-
-// // Serve static assets if in production
-// if (process.env.NODE_ENV === "production") {
-
-//   // Set static folder
-//   app.use(express.static("frontend/build"));
-
-//   // index.html for all page routes
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
-//   });
-// }
-
+//Server
 db.once('open', () => {
-    console.log('Mongoose DB connection established.')
-  });
+  console.log('Mongoose DB connection established.')
+});
 
 
 const port = process.env.PORT || 5000
