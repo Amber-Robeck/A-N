@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ProductForm from './productForm';
+import ProductForm from '../../components/Admin/productForm';
 import { Grid, Typography } from '@mui/material'
 
 //Currently commented out api call to test product form
