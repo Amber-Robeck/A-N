@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react'
 //TODO: Button for submit add/update
 
 const ProductForm = () => {
-    const API_URL = 'http://localhost:5000/adminnnnn';
+    const API_URL = 'http://localhost:5000/admin';
     const [products, setProducts] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
 
