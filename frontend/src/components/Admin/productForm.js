@@ -1,5 +1,5 @@
 import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select } from '@mui/material'
-import { height } from '@mui/system'
+// import { height } from '@mui/system'
 import React, { useState, useEffect } from 'react'
 
 //This will be dynamic depending upon users choice, create, update
@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react'
 //TODO: Button for submit add/update
 
 const ProductForm = () => {
-    const API_URL = 'http://localhost:5000/admin'
+    const API_URL = 'http://localhost:5000/admin';
     const [products, setProducts] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
 
