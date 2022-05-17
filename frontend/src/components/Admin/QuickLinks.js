@@ -12,7 +12,7 @@ const QuickLinks = () => {
             </Typography>
             <Grid item verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
                 marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                <Link to="/admin/update" style={{ textDecoration: 'none' }}>
+                <Link to="/admin" style={{ textDecoration: 'none' }}>
                     <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Admin HOME</Paper>
                 </Link>
             </Grid>

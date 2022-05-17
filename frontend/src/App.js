@@ -15,6 +15,7 @@ import SingleProduct from './pages/SingleProduct';
 import About from './pages/About';
 import Admin from './pages/Admin';
 import AdminView from './pages/AdminView';
+import AdminUpdate from './pages/AdminUpdate';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/view" element={<AdminView />} />
+        <Route path="/admin/update" element={<AdminUpdate />} />
       </Routes>
       <Footer />
     </BrowserRouter>
