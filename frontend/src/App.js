@@ -14,6 +14,7 @@ import Gifting from './pages/Gifting';
 import SingleProduct from './pages/SingleProduct';
 import About from './pages/About';
 import Admin from './pages/Admin';
+// import AdminView from './pages/AdminView';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/gifting" element={<Gifting />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
+        {/* <Route path="/admin/view" element={<AdminView />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>
