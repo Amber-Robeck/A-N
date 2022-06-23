@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 });
 
 //Individual products
-router.get('/:productId', async (req, res) => {
+router.get('/update/:productId', async (req, res) => {
     try {
         const singleProduct = await Product.findById(req.params.productId);
         res.json(singleProduct);
