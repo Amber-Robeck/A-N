@@ -32,7 +32,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/view" element={<AdminView />} />
-        <Route path="/admin/update" element={<AdminUpdate />} />
+        <Route path="/admin/update/:productId" element={<AdminUpdate />} />
       </Routes>
       <Footer />
     </BrowserRouter>
