@@ -1,8 +1,9 @@
-import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography } from '@mui/material'
+import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-//TODO mapping over categories change to multiple select, maybe use checkboxs. currently only works with one category
+
+//TODO working on category checkbox, needing to map and display current categories
 
 const SingleProduct = () => {
     //have to call the const what the parameter is set as in route
@@ -11,13 +12,36 @@ const SingleProduct = () => {
     const API_URL = 'http://localhost:5000/admin/update/' + productId;
     const [singleProduct, setSingleProduct] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
-    // const [category, setCategory] = useState('');
+    const [category, setCategory] = useState([]);
 
-    // const getCategory = async (singleProd) => {
-    //     const category = await singleProd.category[0];
-    //     // setCategory(category);
-    //     console.log(category)
-    // }
+
+    //from material ui doc https://mui.com/material-ui/react-select/
+    const ITEM_HEIGHT = 48;
+    const ITEM_PADDING_TOP = 8;
+    const MenuProps = {
+        PaperProps: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+            },
+        },
+    };
+
+    const categories = [
+        'mens',
+        'womens',
+        'childrens',
+    ];
+
+    const handleChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setCategory(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+
     useEffect(() => {
 
         const fetchItems = async () => {
@@ -73,26 +97,49 @@ const SingleProduct = () => {
                             defaultValue={singleProduct.description} />
                     </Grid>
                     <Grid item xs={12}>
+
                         <FormControl sx={{ m: 1, width: 300 }}>
                             <InputLabel id="category">Category</InputLabel>
+                            <Select
+                                labelId="category"
+                                id="multiple-checkbox"
+                                multiple
+                                value={category}
+                                onChange={handleChange}
+                                input={<OutlinedInput label="Category" />}
+                                renderValue={(category) => category.join(', ')}
+                                MenuProps={MenuProps}
+                            >
+                                {categories.map((cate) => (
+                                    <MenuItem key={cate} value={cate}>
+                                        <Checkbox checked={category.indexOf(cate) > -1} />
+                                        <ListItemText primary={cate} />
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        {/* <FormControl sx={{ m: 1, width: 300 }}>
+                            <InputLabel id="category">Category</InputLabel>
                             {singleProduct.category?.map((cate, index) => (
+                                // <MultiSelect key={index} label={cate} defaultValue={cate} options={["mens", "womens", "childrens"]} />
                                 <Select
                                     key={index}
                                     labelId="category"
-                                    id="category"
+                                    // id="category"
                                     label="Category"
-                                    // multiple
+                                    multiple
                                     defaultValue={cate}
+                                    value={[singleProduct.category]}
                                 // onChange={handleChange}
                                 >
-                                    <MenuItem value={'mens'}>Mens</MenuItem>
+                                    {/* <MenuItem value={'mens'}>Mens</MenuItem>
                                     <MenuItem value={'womens'}>Womens</MenuItem>
-                                    <MenuItem value={'childrens'}>Childrens</MenuItem>
-                                </Select>
-                            )
-                            )
+                                    <MenuItem value={'childrens'}>Childrens</MenuItem> */}
+                        {/* </Select>
+                    )
+                    )
                             }
-                        </FormControl>
+                </FormControl> */}
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl sx={{ m: 1, width: 300 }}>
@@ -125,7 +172,7 @@ const SingleProduct = () => {
                         </FormControl>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid >
         </>)
 }
 
