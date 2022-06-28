@@ -2,6 +2,8 @@ import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, 
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
+//TODO mapping over categories change to multiple select, maybe use checkboxs. currently only works with one category
+
 const SingleProduct = () => {
     //have to call the const what the parameter is set as in route
     const { productId } = useParams();
@@ -9,7 +11,13 @@ const SingleProduct = () => {
     const API_URL = 'http://localhost:5000/admin/update/' + productId;
     const [singleProduct, setSingleProduct] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
+    // const [category, setCategory] = useState('');
 
+    // const getCategory = async (singleProd) => {
+    //     const category = await singleProd.category[0];
+    //     // setCategory(category);
+    //     console.log(category)
+    // }
     useEffect(() => {
 
         const fetchItems = async () => {
@@ -20,6 +28,10 @@ const SingleProduct = () => {
                 // console.log(singleProduct);
                 // console.log(singleProd)
                 setSingleProduct(singleProd);
+                // const category = singleProd.category[0];
+                // setCategory(category);
+                // getCategory(singleProd)
+
             } catch (err) {
                 setFetchErr(err);
             }
@@ -60,22 +72,28 @@ const SingleProduct = () => {
                             label='Product description'
                             defaultValue={singleProduct.description} />
                     </Grid>
-                    {/* <Grid item xs={12}>
+                    <Grid item xs={12}>
                         <FormControl sx={{ m: 1, width: 300 }}>
                             <InputLabel id="category">Category</InputLabel>
-                            <Select
-                                labelId="category"
-                                id="category"
-                                label="Category"
-                                defaultValue={singleProduct.category}
-                            // onChange={handleChange}
-                            >
-                                <MenuItem value={'mens'}>Mens</MenuItem>
-                                <MenuItem value={'womens'}>Womens</MenuItem>
-                                <MenuItem value={'childrens'}>Childrens</MenuItem>
-                            </Select>
+                            {singleProduct.category?.map((cate, index) => (
+                                <Select
+                                    key={index}
+                                    labelId="category"
+                                    id="category"
+                                    label="Category"
+                                    // multiple
+                                    defaultValue={cate}
+                                // onChange={handleChange}
+                                >
+                                    <MenuItem value={'mens'}>Mens</MenuItem>
+                                    <MenuItem value={'womens'}>Womens</MenuItem>
+                                    <MenuItem value={'childrens'}>Childrens</MenuItem>
+                                </Select>
+                            )
+                            )
+                            }
                         </FormControl>
-                    </Grid> */}
+                    </Grid>
                     <Grid item xs={12}>
                         <FormControl sx={{ m: 1, width: 300 }}>
                             <FormLabel id="onSale">On sale?</FormLabel>
