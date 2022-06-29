@@ -1,4 +1,4 @@
-import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox } from '@mui/material'
+import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
@@ -8,29 +8,17 @@ import { useParams } from 'react-router-dom';
 const SingleProduct = () => {
     //have to call the const what the parameter is set as in route
     const { productId } = useParams();
-    console.log(productId)
+    // console.log(productId)
     const API_URL = 'http://localhost:5000/admin/update/' + productId;
     const [singleProduct, setSingleProduct] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
     const [category, setCategory] = useState([]);
 
-
-    //from material ui doc https://mui.com/material-ui/react-select/
-    const ITEM_HEIGHT = 48;
-    const ITEM_PADDING_TOP = 8;
-    const MenuProps = {
-        PaperProps: {
-            style: {
-                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-                width: 250,
-            },
-        },
-    };
-
     const categories = [
         'mens',
         'womens',
         'childrens',
+        'shirt',
     ];
 
     const handleChange = (event) => {
@@ -49,30 +37,25 @@ const SingleProduct = () => {
                 const response = await fetch(API_URL);
                 if (!response.ok) throw Error('Did not recieve data');
                 const singleProd = await response.json();
-                // console.log(singleProduct);
-                // console.log(singleProd)
                 setSingleProduct(singleProd);
-                // const category = singleProd.category[0];
-                // setCategory(category);
-                // getCategory(singleProd)
-
+                setCategory(singleProd.category);
             } catch (err) {
                 setFetchErr(err);
             }
         }
 
         fetchItems();
-    }, []);
+    }, [API_URL]);
 
     return (
         <>
-            <Grid sx={{ mt: 20 }}>
+            <Grid >
                 {fetchErr &&
-                    <Typography variant="h2" verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
+                    <Typography variant="h2" verticalAlign={'bottom'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} color='#FF0000' fontSize={'32px'} letterSpacing={1.2}>
                         {`Uh oh there was a problem! ${fetchErr}`}
                     </Typography>}
-                <Grid container sx={{ mt: 20 }} direction='column' alignItems='center' key={singleProduct._id}>
+                <Grid container sx={{ mt: 0 }} direction='column' alignItems='center' key={singleProduct._id}>
                     <Grid item xs={12}>
                         <TextField
                             sx={{ m: 1, width: 300 }}
@@ -108,38 +91,17 @@ const SingleProduct = () => {
                                 onChange={handleChange}
                                 input={<OutlinedInput label="Category" />}
                                 renderValue={(category) => category.join(', ')}
-                                MenuProps={MenuProps}
                             >
-                                {categories.map((cate) => (
-                                    <MenuItem key={cate} value={cate}>
-                                        <Checkbox checked={category.indexOf(cate) > -1} />
-                                        <ListItemText primary={cate} />
-                                    </MenuItem>
-                                ))}
+                                {
+                                    categories.map((cate) => (
+                                        <MenuItem key={cate} value={cate}>
+                                            <Checkbox checked={category.indexOf(cate) > -1} />
+                                            <ListItemText primary={cate} />
+                                        </MenuItem>
+                                    ))
+                                }
                             </Select>
                         </FormControl>
-                        {/* <FormControl sx={{ m: 1, width: 300 }}>
-                            <InputLabel id="category">Category</InputLabel>
-                            {singleProduct.category?.map((cate, index) => (
-                                // <MultiSelect key={index} label={cate} defaultValue={cate} options={["mens", "womens", "childrens"]} />
-                                <Select
-                                    key={index}
-                                    labelId="category"
-                                    // id="category"
-                                    label="Category"
-                                    multiple
-                                    defaultValue={cate}
-                                    value={[singleProduct.category]}
-                                // onChange={handleChange}
-                                >
-                                    {/* <MenuItem value={'mens'}>Mens</MenuItem>
-                                    <MenuItem value={'womens'}>Womens</MenuItem>
-                                    <MenuItem value={'childrens'}>Childrens</MenuItem> */}
-                        {/* </Select>
-                    )
-                    )
-                            }
-                </FormControl> */}
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl sx={{ m: 1, width: 300 }}>
@@ -170,6 +132,18 @@ const SingleProduct = () => {
                                 <MenuItem value={'newCustomer'}>newCustomer</MenuItem>
                             </Select>
                         </FormControl>
+                    </Grid>
+                    <Grid item verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
+                        marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
+                        <Link to="/admin" style={{ textDecoration: 'none' }}>
+                            <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
+                        </Link>
+                    </Grid>
+                    <Grid item verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
+                        marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
+                        <Link to="/admin" style={{ textDecoration: 'none' }}>
+                            <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
+                        </Link>
                     </Grid>
                 </Grid>
             </Grid >
