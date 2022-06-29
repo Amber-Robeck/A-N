@@ -1,11 +1,14 @@
 import React from 'react';
 import { Grid, Typography, Paper } from '@mui/material';
 import { Link } from "react-router-dom";
+import zIndex from '@mui/material/styles/zIndex';
+
+//TODO: STYLE links under 600px
 
 const QuickLinks = () => {
     return (
 
-        <>
+        <Grid lg={3} direction="column" sx={{ position: "fixed", top: "20%", zIndex: "2" }}>
             <Typography variant="h4" verticalAlign={'baseline'} textAlign={'left'} fontWeight={300}
                 marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' fontSize={'1.5rem'} letterSpacing={1.2}>
                 Quick options
@@ -40,7 +43,7 @@ const QuickLinks = () => {
                     <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Search</Paper>
                 </Link>
             </Grid>
-        </>
+        </Grid>
     )
 }
 
