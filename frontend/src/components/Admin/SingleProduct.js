@@ -1,4 +1,4 @@
-import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
+import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper, Button } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
@@ -30,6 +30,19 @@ const SingleProduct = () => {
         );
     };
 
+    //currently working to change name state, need to add other data as well before calling api and updating
+    const handleChangedData = (event) => {
+        console.log(event.target.value);
+        const {
+            target: { name, value },
+        } = event;
+        setSingleProduct({
+            ...singleProduct,
+            [name]: value,
+        });
+        console.log(singleProduct)
+    }
+
     useEffect(() => {
 
         const fetchItems = async () => {
@@ -47,6 +60,32 @@ const SingleProduct = () => {
         fetchItems();
     }, [API_URL]);
 
+    const updateData = async (e) => {
+        e.preventDefault();
+        console.log(e.target)
+        const data = {
+            name: singleProduct.name,
+            description: singleProduct.description,
+            // category: ,
+            // originalPrice: e.target.originalPrice.value,
+            currentPrice: singleProduct.currentPrice,
+            // onSale: e.target.onSale.value,
+            // saleType: e.target.saleType.value,
+            // variations: e.target.variations.value,
+            // availableSizes: e.target.availableSizes.value,
+        }
+        const response = await fetch(API_URL, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        const updatedProduct = await response.json();
+        setSingleProduct(updatedProduct);
+    }
+
+
     return (
         <>
             <Grid >
@@ -61,7 +100,8 @@ const SingleProduct = () => {
                             sx={{ m: 1, width: 300 }}
                             variant='outlined'
                             label='Product name'
-                            defaultValue={singleProduct.name} />
+                            defaultValue={singleProduct.name}
+                            onChange={handleChangedData} />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
@@ -141,9 +181,10 @@ const SingleProduct = () => {
                     </Grid>
                     <Grid item verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to="/admin" style={{ textDecoration: 'none' }}>
+                        <Link to={"/admin/update/" + singleProduct._id} onClick={updateData} style={{ textDecoration: 'none' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
                         </Link>
+                        <Button onClick={(e) => updateData(e)}>Update</Button>
                     </Grid>
                 </Grid>
             </Grid >
