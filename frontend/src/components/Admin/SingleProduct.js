@@ -10,6 +10,7 @@ const SingleProduct = () => {
     const { productId } = useParams();
     // console.log(productId)
     const API_URL = 'http://localhost:5000/admin/update/' + productId;
+    // console.log(API_URL)
     const [singleProduct, setSingleProduct] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
     const [category, setCategory] = useState([]);
@@ -38,9 +39,9 @@ const SingleProduct = () => {
         } = event;
         setSingleProduct({
             ...singleProduct,
-            [name]: value,
+            name: value,
         });
-        console.log(singleProduct)
+        console.log("singleProduct", singleProduct)
     }
 
     useEffect(() => {
@@ -66,14 +67,15 @@ const SingleProduct = () => {
         const data = {
             name: singleProduct.name,
             description: singleProduct.description,
-            // category: ,
-            // originalPrice: e.target.originalPrice.value,
+            category: singleProduct.category,
+            originalPrice: singleProduct.originalPrice,
             currentPrice: singleProduct.currentPrice,
-            // onSale: e.target.onSale.value,
-            // saleType: e.target.saleType.value,
-            // variations: e.target.variations.value,
-            // availableSizes: e.target.availableSizes.value,
+            onSale: singleProduct.onSale,
+            saleType: singleProduct.saleType,
+            variations: singleProduct.variations,
+            // availableSizes: singleProduct.availableSizes,
         }
+        console.log("data", data)
         const response = await fetch(API_URL, {
             method: 'PUT',
             headers: {
@@ -82,6 +84,7 @@ const SingleProduct = () => {
             body: JSON.stringify(data)
         });
         const updatedProduct = await response.json();
+        console.log(updatedProduct)
         setSingleProduct(updatedProduct);
     }
 

@@ -50,11 +50,12 @@ router.get('/update/:productId', async (req, res) => {
 
 //Update
 router.put('/update/:productId', async (req, res) => {
+    console.log(req.body)
     try {
         const updatedProduct = await Product.updateOne(
             { _id: req.params.productId },
             {
-                $set: { name: req.body.name, description: req.body.description, category: req.body.category, originalPrice: req.body.originalPrice, currentPrice: req.body.currentPrice, onSale: req.body.onSale, saleType: req.body.saleType, variations: req.body.variations, availableSizes: req.body.availableSizes }
+                $set: { name: req.body.name, description: req.body.description, category: req.body.category, originalPrice: req.body.originalPrice, currentPrice: req.body.currentPrice, onSale: req.body.onSale, saleType: req.body.saleType, variations: req.body.variations }
             });
         res.json(updatedProduct);
     } catch (err) {
