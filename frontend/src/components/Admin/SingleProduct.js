@@ -33,13 +33,13 @@ const SingleProduct = () => {
 
     //currently working to change name state, need to add other data as well before calling api and updating
     const handleChangedData = (event) => {
-        console.log(event.target.value);
+        console.log("event", event.target);
         const {
             target: { name, value },
         } = event;
         setSingleProduct({
             ...singleProduct,
-            name: value,
+            [name]: value,
         });
         console.log("singleProduct", singleProduct)
     }
@@ -103,6 +103,7 @@ const SingleProduct = () => {
                             sx={{ m: 1, width: 300 }}
                             variant='outlined'
                             label='Product name'
+                            name='name'
                             defaultValue={singleProduct.name}
                             onChange={handleChangedData} />
                     </Grid>
@@ -111,8 +112,10 @@ const SingleProduct = () => {
                             sx={{ m: 1, width: 300 }}
                             variant='outlined'
                             label='Price of product'
+                            name='currentPrice'
                             type='number'
-                            defaultValue={singleProduct.currentPrice} />
+                            defaultValue={singleProduct.currentPrice}
+                            onChange={handleChangedData} />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
