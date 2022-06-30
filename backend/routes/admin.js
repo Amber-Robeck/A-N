@@ -49,12 +49,12 @@ router.get('/update/:productId', async (req, res) => {
 });
 
 //Update
-router.put('/:productId', async (req, res) => {
+router.put('/update/:productId', async (req, res) => {
     try {
         const updatedProduct = await Product.updateOne(
             { _id: req.params.productId },
             {
-                $set: { currentPrice: req.body.currentPrice }
+                $set: { name: req.body.name, description: req.body.description, category: req.body.category, originalPrice: req.body.originalPrice, currentPrice: req.body.currentPrice, onSale: req.body.onSale, saleType: req.body.saleType, variations: req.body.variations, availableSizes: req.body.availableSizes }
             });
         res.json(updatedProduct);
     } catch (err) {
