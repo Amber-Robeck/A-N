@@ -123,7 +123,9 @@ const SingleProduct = () => {
                             variant='outlined'
                             multiline
                             label='Product description'
-                            defaultValue={singleProduct.description} />
+                            name='description'
+                            defaultValue={singleProduct.description}
+                            onChange={handleChangedData} />
                     </Grid>
                     <Grid item xs={12}>
 
@@ -131,6 +133,7 @@ const SingleProduct = () => {
                             <InputLabel id="category">Category</InputLabel>
                             <Select
                                 labelId="category"
+                                name='category'
                                 id="multiple-checkbox"
                                 multiple
                                 value={category}
@@ -155,8 +158,9 @@ const SingleProduct = () => {
                             <RadioGroup
                                 row={true}
                                 aria-labelledby="onSale"
-                                name="radio-buttons-group"
+                                name="onSale"
                                 defaultValue={singleProduct.onSale}
+                            // onChange={handleChangedData}
                             >
                                 <FormControlLabel value="true" control={<Radio />} label="Yes" />
                                 <FormControlLabel value="false" control={<Radio />} label="No" />
@@ -168,10 +172,11 @@ const SingleProduct = () => {
                             <InputLabel id="saleType">Sale type</InputLabel>
                             <Select
                                 labelId="saleType"
+                                name='saleType'
                                 id="saleType"
                                 label="saleType"
                                 value={singleProduct.saleType}
-                            // onChange={handleChange}
+                            // onChange={handleChangedData}
                             >
                                 <MenuItem value={'get1now'}>get1now</MenuItem>
                                 <MenuItem value={'save10'}>save10</MenuItem>
