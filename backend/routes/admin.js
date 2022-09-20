@@ -55,7 +55,16 @@ router.put('/update/:productId', async (req, res) => {
         const updatedProduct = await Product.updateOne(
             { _id: req.params.productId },
             {
-                $set: { name: req.body.name, description: req.body.description, category: req.body.category, originalPrice: req.body.originalPrice, currentPrice: req.body.currentPrice, onSale: req.body.onSale, saleType: req.body.saleType, variations: req.body.variations }
+                $set: {
+                    name: req.body.name,
+                    description: req.body.description,
+                    category: req.body.category,
+                    originalPrice: req.body.originalPrice,
+                    currentPrice: req.body.currentPrice,
+                    onSale: req.body.onSale,
+                    saleType: req.body.saleType,
+                    variations: req.body.variations
+                }
             });
         res.json(updatedProduct);
     } catch (err) {
