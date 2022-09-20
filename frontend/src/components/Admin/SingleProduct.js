@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 
 //TODO working on category checkbox, needing to map and display current categories
+//todo display data after update.
 
 const SingleProduct = () => {
     //have to call the const what the parameter is set as in route
@@ -14,6 +15,7 @@ const SingleProduct = () => {
     const [singleProduct, setSingleProduct] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
     const [category, setCategory] = useState([]);
+    let updatedProduct;
 
     const categories = [
         'mens',
@@ -41,7 +43,7 @@ const SingleProduct = () => {
             ...singleProduct,
             [name]: value,
         });
-        console.log("singleProduct", singleProduct)
+        console.log("singleProductChangedData", singleProduct)
     }
 
     useEffect(() => {
@@ -59,7 +61,7 @@ const SingleProduct = () => {
         }
 
         fetchItems();
-    }, [API_URL]);
+    }, [API_URL, updatedProduct]);
 
     const updateData = async (e) => {
         e.preventDefault();
@@ -83,9 +85,9 @@ const SingleProduct = () => {
             },
             body: JSON.stringify(data)
         });
-        const updatedProduct = await response.json();
-        console.log(updatedProduct)
-        setSingleProduct(updatedProduct);
+        await response.json();
+        // console.log('updatedReturn', updatedProduct)
+        setSingleProduct(data);
     }
 
 
@@ -93,7 +95,7 @@ const SingleProduct = () => {
         <>
             <Grid >
                 {fetchErr &&
-                    <Typography variant="h2" verticalAlign={'bottom'} textAlign={'center'} fontWeight={300}
+                    <Typography variant="h2" vertialalign={'bottom'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} color='#FF0000' fontSize={'32px'} letterSpacing={1.2}>
                         {`Uh oh there was a problem! ${fetchErr}`}
                     </Typography>}
@@ -160,37 +162,40 @@ const SingleProduct = () => {
                                 aria-labelledby="onSale"
                                 name="onSale"
                                 defaultValue={singleProduct.onSale}
-                            // onChange={handleChangedData}
+                                onChange={handleChangedData}
                             >
                                 <FormControlLabel value="true" control={<Radio />} label="Yes" />
                                 <FormControlLabel value="false" control={<Radio />} label="No" />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12}>
-                        <FormControl sx={{ m: 1, width: 300 }}>
-                            <InputLabel id="saleType">Sale type</InputLabel>
-                            <Select
-                                labelId="saleType"
-                                name='saleType'
-                                id="saleType"
-                                label="saleType"
-                                value={singleProduct.saleType}
-                            // onChange={handleChangedData}
-                            >
-                                <MenuItem value={'get1now'}>get1now</MenuItem>
-                                <MenuItem value={'save10'}>save10</MenuItem>
-                                <MenuItem value={'newCustomer'}>newCustomer</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid item verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
+                    {singleProduct.onSale ?
+                        <Grid item xs={12}>
+                            <FormControl sx={{ m: 1, width: 300 }}>
+                                <InputLabel id="saleType">Sale type</InputLabel>
+                                <Select
+                                    labelId="saleType"
+                                    name='saleType'
+                                    id="saleType"
+                                    label="saleType"
+                                    checked=''
+                                    value={singleProduct.saleType}
+                                    onChange={handleChangedData}
+                                >
+                                    <MenuItem value={'get1now'}>get1now</MenuItem>
+                                    <MenuItem value={'save10'}>save10</MenuItem>
+                                    <MenuItem value={'newCustomer'}>newCustomer</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        : ""}
+                    <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
                         <Link to="/admin" style={{ textDecoration: 'none' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
                         </Link>
                     </Grid>
-                    <Grid item verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
+                    <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
                         <Link to={"/admin/update/" + singleProduct._id} onClick={updateData} style={{ textDecoration: 'none' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
