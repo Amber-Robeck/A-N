@@ -9,7 +9,7 @@ const AdminView = () => {
             <Grid sx={{ mt: 20 }}>
                 <Typography variant="h1" verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
                     marginBottom={'1em'} marginTop={'1em'} color='#000' fontSize={'32px'} letterSpacing={1.2}>
-                    Products list page
+                    {/* Products list page */}
                 </Typography>
                 <QuickLinks />
             </Grid>
