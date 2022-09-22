@@ -1,4 +1,4 @@
-import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper, Button } from '@mui/material'
+import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
@@ -13,9 +13,10 @@ const SingleProduct = () => {
     const API_URL = 'http://localhost:5000/admin/update/' + productId;
     // console.log(API_URL)
     const [singleProduct, setSingleProduct] = useState([]);
+    const [singleProd, setSingleProd] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
     const [category, setCategory] = useState([]);
-    let updatedProduct;
+    // let updatedProduct;
 
     const categories = [
         'mens',
@@ -52,16 +53,17 @@ const SingleProduct = () => {
             try {
                 const response = await fetch(API_URL);
                 if (!response.ok) throw Error('Did not recieve data');
-                const singleProd = await response.json();
-                setSingleProduct(singleProd);
-                setCategory(singleProd.category);
+                const res = await response.json();
+                setSingleProd(res);
+                setSingleProduct(res);
+                setCategory(res.category);
             } catch (err) {
                 setFetchErr(err);
             }
         }
 
         fetchItems();
-    }, [API_URL, updatedProduct]);
+    }, [API_URL]);
 
     const updateData = async (e) => {
         e.preventDefault();
@@ -191,16 +193,16 @@ const SingleProduct = () => {
                         : ""}
                     <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to="/admin" style={{ textDecoration: 'none' }}>
+                        <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => updateData(e)} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
                         </Link>
                     </Grid>
                     <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to={"/admin/update/" + singleProduct._id} onClick={updateData} style={{ textDecoration: 'none' }}>
+                        <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => window.location.reload()} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
                         </Link>
-                        <Button onClick={(e) => updateData(e)}>Update</Button>
+                        {/* <Button onClick={(e) => updateData(e)}>Update</Button> */}
                     </Grid>
                 </Grid>
             </Grid >
