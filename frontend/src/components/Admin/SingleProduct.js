@@ -4,8 +4,6 @@ import { useParams } from 'react-router-dom';
 import helpers from '../../utils/helpers'
 
 
-//TODO working on category checkbox, needing to map and display current categories
-
 const SingleProduct = () => {
     //have to call the const what the parameter is set as in route
     const { productId } = useParams();
@@ -17,33 +15,6 @@ const SingleProduct = () => {
     const [category, setCategory] = useState([]);
     const categories = helpers.categories;
 
-    // const categories = [
-    //     'mens',
-    //     'womens',
-    //     'childrens',
-    //     'shirt',
-    // ];
-
-    // const handleChange = (event) => {
-    //     const {
-    //         target: { value },
-    //     } = event;
-    //     setCategory(
-    //         typeof value === 'string' ? value.split(',') : value,
-    //     );
-    // };
-
-    // const handleChangedData = (event) => {
-    //     console.log("event", event.target);
-    //     const {
-    //         target: { name, value },
-    //     } = event;
-    //     setSingleProduct({
-    //         ...singleProduct,
-    //         [name]: value,
-    //     });
-    //     // console.log("singleProductChangedData", singleProduct)
-    // }
 
     useEffect(() => {
 
@@ -61,34 +32,6 @@ const SingleProduct = () => {
 
         fetchItems();
     }, [API_URL]);
-
-    // const updateData = async (e) => {
-    //     e.preventDefault();
-    //     console.log(e.target)
-    //     const data = {
-    //         name: singleProduct.name,
-    //         description: singleProduct.description,
-    //         category: singleProduct.category,
-    //         originalPrice: singleProduct.originalPrice,
-    //         currentPrice: singleProduct.currentPrice,
-    //         onSale: singleProduct.onSale,
-    //         saleType: singleProduct.saleType,
-    //         variations: singleProduct.variations,
-    //         // availableSizes: singleProduct.availableSizes,
-    //     }
-    //     console.log("data", data)
-    //     const response = await fetch(API_URL, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     });
-    //     await response.json();
-    //     // console.log('updatedReturn', updatedProduct)
-    //     setSingleProduct(data);
-    // }
-
 
     return (
         <>
