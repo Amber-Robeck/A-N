@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { Grid, Typography } from '@mui/material'
 import QuickLinks from '../../components/Admin/QuickLinks';
-import ProductList from '../../components/Admin/ProductList';
+import NewProduct from '../../components/Admin/NewProduct';
 
-const AdminView = () => {
+const AdminNew = () => {
     return (
         <>
             <Grid sx={{ mt: 20 }}>
-                <Typography variant="h1" verticalAlign={'baseline'} textAlign={'center'} fontWeight={300}
+                <Typography variant="h1" verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                     marginBottom={'1em'} marginTop={'1em'} color='#000' fontSize={'32px'} letterSpacing={1.2}>
-                    Here is your inventory
+                    Create your new item
                 </Typography>
                 <QuickLinks />
             </Grid>
-            <ProductList />
+            <NewProduct />
 
         </>
 
     )
 }
 
-export default AdminView
+export default AdminNew;
