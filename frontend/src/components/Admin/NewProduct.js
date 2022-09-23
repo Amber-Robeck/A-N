@@ -67,7 +67,7 @@ const NewProduct = () => {
     return (
         <>
             <Grid >
-                <Grid container sx={{ mt: 20 }} direction='column' alignItems='center' key={newProduct._id}>
+                <Grid container sx={{ mt: 0 }} direction='column' alignItems='center' key={newProduct._id}>
                     <Grid item xs={12}>
                         <TextField
                             sx={{ m: 1, width: 300 }}

@@ -16,7 +16,7 @@ import About from './pages/About';
 import Admin from './pages/Admin';
 import AdminView from './pages/AdminView';
 import AdminUpdate from './pages/AdminUpdate';
-import NewProduct from './components/Admin/NewProduct';
+import AdminNew from './pages/AdminNew';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
         <Route path="/gifting" element={<Gifting />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/create" element={<NewProduct />} />
+        <Route path="/admin/create" element={<AdminNew />} />
         <Route path="/admin/view" element={<AdminView />} />
         <Route path="/admin/update/:productId" element={<AdminUpdate />} />
       </Routes>
