@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 //Create product
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
     const product = new Product({
         name: req.body.name,
         description: req.body.description,
