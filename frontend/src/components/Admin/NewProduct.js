@@ -1,69 +1,13 @@
 import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
 import React, { useState } from 'react';
-
-
-
-
+import helpers from '../../utils/helpers'
 
 const NewProduct = () => {
     const [newProduct, setNewProduct] = useState([]);
     const API_URL = 'http://localhost:5000/admin/create';
     const [category, setCategory] = useState([]);
+    const categories = helpers.categories;
 
-    const categories = [
-        'mens',
-        'womens',
-        'childrens',
-        'shirt',
-    ];
-
-    const handleChange = (event) => {
-        const {
-            target: { value },
-        } = event;
-        setCategory(
-            typeof value === 'string' ? value.split(',') : value,
-        );
-    };
-
-    const handleChangedData = (event) => {
-        console.log("event", event.target);
-        const {
-            target: { name, value },
-        } = event;
-        setNewProduct({
-            ...newProduct,
-            [name]: value,
-        });
-    }
-
-    const updateData = async (e) => {
-        e.preventDefault();
-        console.log(e.target)
-        const data = {
-            name: newProduct.name,
-            description: newProduct.description,
-            category: category,
-            originalPrice: newProduct.originalPrice,
-            currentPrice: newProduct.currentPrice,
-            onSale: newProduct.onSale,
-            saleType: newProduct.saleType,
-            variations: newProduct.variations,
-            // availableSizes: newProduct.availableSizes,
-        }
-        console.log("data", data)
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-        await response.json();
-        // console.log('updatedReturn', updatedProduct)
-        setNewProduct(data);
-        window.alert("New product saved")
-    }
     return (
         <>
             <Grid >
@@ -75,7 +19,7 @@ const NewProduct = () => {
                             label='Product name'
                             name='name'
                             defaultValue={newProduct.name}
-                            onChange={handleChangedData}
+                            onChange={(e) => { helpers.handleChangedData(e, setNewProduct, newProduct) }}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -86,7 +30,7 @@ const NewProduct = () => {
                             name='currentPrice'
                             type='number'
                             defaultValue={newProduct.currentPrice}
-                            onChange={handleChangedData}
+                            onChange={(e) => { helpers.handleChangedData(e, setNewProduct, newProduct) }}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -97,7 +41,7 @@ const NewProduct = () => {
                             label='Product description'
                             name='description'
                             defaultValue={newProduct.description}
-                            onChange={handleChangedData}
+                            onChange={(e) => { helpers.handleChangedData(e, setNewProduct, newProduct) }}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -110,7 +54,7 @@ const NewProduct = () => {
                                 id="multiple-checkbox"
                                 multiple
                                 value={category}
-                                onChange={handleChange}
+                                onChange={(e) => { helpers.handleChange(e, setCategory) }}
                                 input={<OutlinedInput label="Category" />}
                                 renderValue={(category) => category.join(', ')}
                             >
@@ -133,7 +77,7 @@ const NewProduct = () => {
                                 aria-labelledby="onSale"
                                 name="onSale"
                                 defaultValue={newProduct.onSale}
-                                onChange={handleChangedData}
+                                onChange={(e) => { helpers.handleChangedData(e, setNewProduct, newProduct) }}
                             >
                                 <FormControlLabel value="true" control={<Radio />} label="Yes" />
                                 <FormControlLabel value="false" control={<Radio />} label="No" />
@@ -151,7 +95,7 @@ const NewProduct = () => {
                                     label="saleType"
                                     checked=''
                                     value={newProduct.saleType}
-                                    onChange={handleChangedData}
+                                    onChange={(e) => { helpers.handleChangedData(e, setNewProduct, newProduct) }}
                                 >
                                     <MenuItem value={'get1now'}>get1now</MenuItem>
                                     <MenuItem value={'save10'}>save10</MenuItem>
@@ -162,7 +106,7 @@ const NewProduct = () => {
                         : ""}
                     <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to={"/admin/update/" + newProduct._id} onClick={(e) => updateData(e)} style={{ textDecoration: 'none', cursor: 'pointer' }}>
+                        <Link to={"/admin/update/" + newProduct._id} onClick={(e) => helpers.updateData(e, newProduct, category, API_URL, 'POST', setNewProduct, 'Item added to inventory')} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
                         </Link>
                     </Grid>
