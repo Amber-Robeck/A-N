@@ -7,60 +7,7 @@ const NewProduct = () => {
     const API_URL = 'http://localhost:5000/admin/create';
     const [category, setCategory] = useState([]);
     const categories = helpers.categories;
-    // const categories = [
-    //     'mens',
-    //     'womens',
-    //     'childrens',
-    //     'shirt',
-    // ];
 
-    // const handleChange = (event) => {
-    //     const {
-    //         target: { value },
-    //     } = event;
-    //     setCategory(
-    //         typeof value === 'string' ? value.split(',') : value,
-    //     );
-    // };
-
-    // const handleChangedData = (event) => {
-    //     console.log("event", event.target);
-    //     const {
-    //         target: { name, value },
-    //     } = event;
-    //     setNewProduct({
-    //         ...newProduct,
-    //         [name]: value,
-    //     });
-    // }
-
-    // const updateData = async (e) => {
-    //     e.preventDefault();
-    //     console.log(e.target)
-    //     const data = {
-    //         name: newProduct.name,
-    //         description: newProduct.description,
-    //         category: category,
-    //         originalPrice: newProduct.originalPrice,
-    //         currentPrice: newProduct.currentPrice,
-    //         onSale: newProduct.onSale,
-    //         saleType: newProduct.saleType,
-    //         variations: newProduct.variations,
-    //         // availableSizes: newProduct.availableSizes,
-    //     }
-    //     console.log("data", data)
-    //     const response = await fetch(API_URL, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     });
-    //     await response.json();
-    //     // console.log('updatedReturn', updatedProduct)
-    //     setNewProduct(data);
-    //     window.alert("New product saved")
-    // }
     return (
         <>
             <Grid >
