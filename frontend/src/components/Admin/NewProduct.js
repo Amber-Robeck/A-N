@@ -1,5 +1,5 @@
 import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
 
@@ -8,6 +8,34 @@ import React, { useState, useEffect } from 'react';
 const NewProduct = () => {
     const [newProduct, setNewProduct] = useState([]);
     const API_URL = 'http://localhost:5000/admin/create';
+    const [category, setCategory] = useState([]);
+
+    const categories = [
+        'mens',
+        'womens',
+        'childrens',
+        'shirt',
+    ];
+
+    const handleChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setCategory(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+
+    const handleChangedData = (event) => {
+        console.log("event", event.target);
+        const {
+            target: { name, value },
+        } = event;
+        setNewProduct({
+            ...newProduct,
+            [name]: value,
+        });
+    }
 
     const updateData = async (e) => {
         e.preventDefault();
@@ -15,7 +43,7 @@ const NewProduct = () => {
         const data = {
             name: newProduct.name,
             description: newProduct.description,
-            category: newProduct.category,
+            category: category,
             originalPrice: newProduct.originalPrice,
             currentPrice: newProduct.currentPrice,
             onSale: newProduct.onSale,
@@ -34,6 +62,7 @@ const NewProduct = () => {
         await response.json();
         // console.log('updatedReturn', updatedProduct)
         setNewProduct(data);
+        window.alert("New product saved")
     }
     return (
         <>
@@ -46,7 +75,7 @@ const NewProduct = () => {
                             label='Product name'
                             name='name'
                             defaultValue={newProduct.name}
-                        // onChange={handleChangedData} 
+                            onChange={handleChangedData}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -57,7 +86,7 @@ const NewProduct = () => {
                             name='currentPrice'
                             type='number'
                             defaultValue={newProduct.currentPrice}
-                        // onChange={handleChangedData} 
+                            onChange={handleChangedData}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -68,7 +97,7 @@ const NewProduct = () => {
                             label='Product description'
                             name='description'
                             defaultValue={newProduct.description}
-                        // onChange={handleChangedData} 
+                            onChange={handleChangedData}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -80,19 +109,19 @@ const NewProduct = () => {
                                 name='category'
                                 id="multiple-checkbox"
                                 multiple
-                                // value={category}
-                                // onChange={handleChange}
+                                value={category}
+                                onChange={handleChange}
                                 input={<OutlinedInput label="Category" />}
-                            // renderValue={(category) => category.join(', ')}
+                                renderValue={(category) => category.join(', ')}
                             >
-                                {/* {
+                                {
                                     categories.map((cate) => (
                                         <MenuItem key={cate} value={cate}>
                                             <Checkbox checked={category.indexOf(cate) > -1} />
                                             <ListItemText primary={cate} />
                                         </MenuItem>
                                     ))
-                                } */}
+                                }
                             </Select>
                         </FormControl>
                     </Grid>
@@ -104,7 +133,7 @@ const NewProduct = () => {
                                 aria-labelledby="onSale"
                                 name="onSale"
                                 defaultValue={newProduct.onSale}
-                            // onChange={handleChangedData}
+                                onChange={handleChangedData}
                             >
                                 <FormControlLabel value="true" control={<Radio />} label="Yes" />
                                 <FormControlLabel value="false" control={<Radio />} label="No" />
@@ -122,7 +151,7 @@ const NewProduct = () => {
                                     label="saleType"
                                     checked=''
                                     value={newProduct.saleType}
-                                // onChange={handleChangedData}
+                                    onChange={handleChangedData}
                                 >
                                     <MenuItem value={'get1now'}>get1now</MenuItem>
                                     <MenuItem value={'save10'}>save10</MenuItem>
