@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 
 //TODO working on category checkbox, needing to map and display current categories
-//todo display data after update.
 
 const SingleProduct = () => {
     //have to call the const what the parameter is set as in route
@@ -13,10 +12,8 @@ const SingleProduct = () => {
     const API_URL = 'http://localhost:5000/admin/update/' + productId;
     // console.log(API_URL)
     const [singleProduct, setSingleProduct] = useState([]);
-    const [singleProd, setSingleProd] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
     const [category, setCategory] = useState([]);
-    // let updatedProduct;
 
     const categories = [
         'mens',
@@ -34,7 +31,6 @@ const SingleProduct = () => {
         );
     };
 
-    //currently working to change name state, need to add other data as well before calling api and updating
     const handleChangedData = (event) => {
         console.log("event", event.target);
         const {
@@ -44,7 +40,7 @@ const SingleProduct = () => {
             ...singleProduct,
             [name]: value,
         });
-        console.log("singleProductChangedData", singleProduct)
+        // console.log("singleProductChangedData", singleProduct)
     }
 
     useEffect(() => {
@@ -54,7 +50,6 @@ const SingleProduct = () => {
                 const response = await fetch(API_URL);
                 if (!response.ok) throw Error('Did not recieve data');
                 const res = await response.json();
-                setSingleProd(res);
                 setSingleProduct(res);
                 setCategory(res.category);
             } catch (err) {
@@ -202,7 +197,6 @@ const SingleProduct = () => {
                         <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => window.location.reload()} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
                         </Link>
-                        {/* <Button onClick={(e) => updateData(e)}>Update</Button> */}
                     </Grid>
                 </Grid>
             </Grid >
