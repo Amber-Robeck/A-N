@@ -107,12 +107,10 @@ const NewProduct = () => {
                         : ""}
                     <AdminButton
                         buttonText={'Save Item'}
-                        stateName={newProduct}
                         clickFunc={(e) => helpers.updateData(e, newProduct, category, API_URL, 'POST', setNewProduct, 'Item added to inventory')}
                     />
                     <AdminButton
                         buttonText={'Reset Form'}
-                        stateName={newProduct}
                         clickFunc={(e) => window.location.reload()}
                     />
                 </Grid>

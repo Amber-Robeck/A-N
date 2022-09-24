@@ -137,11 +137,13 @@ const SingleProduct = () => {
                     <AdminButton
                         buttonText={'Save Item'}
                         stateName={singleProduct}
+                        // linkTo={"/admin/update/" + singleProduct._id}
                         clickFunc={(e) => helpers.updateData(e, singleProduct, category, API_URL, 'PUT', setSingleProduct)}
                     />
                     <AdminButton
                         buttonText={'Reset Form'}
                         stateName={singleProduct}
+                        // linkTo={"/admin/update/" + singleProduct._id}
                         clickFunc={(e) => window.location.reload()}
                     />
                 </Grid>
