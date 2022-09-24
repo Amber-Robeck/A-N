@@ -1,7 +1,8 @@
-import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
+import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, Typography, OutlinedInput, ListItemText, Checkbox, Link, Paper, Container } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import helpers from '../../utils/helpers'
+import AdminButton from './AdminButton';
 
 
 const SingleProduct = () => {
@@ -131,18 +132,22 @@ const SingleProduct = () => {
                             </FormControl>
                         </Grid>
                         : ""}
-                    <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
-                        marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
+
+
+                    <AdminButton buttonText={'Save Item'} stateName={singleProduct} clickFunc={(e) => helpers.updateData(e, singleProduct, category, API_URL, 'PUT', setSingleProduct)} />
+                    {/* <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
+                    marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
                         <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => helpers.updateData(e, singleProduct, category, API_URL, 'PUT', setSingleProduct)} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
-                        </Link>
-                    </Grid>
-                    <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
+                            </Link>
+                        </Grid> */}
+                    <AdminButton buttonText={'Reset Form'} stateName={singleProduct} clickFunc={(e) => window.location.reload()} />
+                    {/* <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
                         marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
                         <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => window.location.reload()} style={{ textDecoration: 'none', cursor: 'pointer' }}>
                             <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
                         </Link>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Grid >
         </>)
