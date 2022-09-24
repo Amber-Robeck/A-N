@@ -134,20 +134,16 @@ const SingleProduct = () => {
                         : ""}
 
 
-                    <AdminButton buttonText={'Save Item'} stateName={singleProduct} clickFunc={(e) => helpers.updateData(e, singleProduct, category, API_URL, 'PUT', setSingleProduct)} />
-                    {/* <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
-                    marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => helpers.updateData(e, singleProduct, category, API_URL, 'PUT', setSingleProduct)} style={{ textDecoration: 'none', cursor: 'pointer' }}>
-                            <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
-                            </Link>
-                        </Grid> */}
-                    <AdminButton buttonText={'Reset Form'} stateName={singleProduct} clickFunc={(e) => window.location.reload()} />
-                    {/* <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
-                        marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to={"/admin/update/" + singleProduct._id} onClick={(e) => window.location.reload()} style={{ textDecoration: 'none', cursor: 'pointer' }}>
-                            <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
-                        </Link>
-                    </Grid> */}
+                    <AdminButton
+                        buttonText={'Save Item'}
+                        stateName={singleProduct}
+                        clickFunc={(e) => helpers.updateData(e, singleProduct, category, API_URL, 'PUT', setSingleProduct)}
+                    />
+                    <AdminButton
+                        buttonText={'Reset Form'}
+                        stateName={singleProduct}
+                        clickFunc={(e) => window.location.reload()}
+                    />
                 </Grid>
             </Grid >
         </>)
