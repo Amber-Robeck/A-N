@@ -1,4 +1,4 @@
-import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, OutlinedInput, ListItemText, Checkbox, Link, Paper } from '@mui/material'
+import { TextField, Grid, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, MenuItem, InputLabel, Select, OutlinedInput, ListItemText, Checkbox } from '@mui/material'
 import React, { useState } from 'react';
 import helpers from '../../utils/helpers'
 import AdminButton from './AdminButton';
@@ -115,18 +115,6 @@ const NewProduct = () => {
                         stateName={newProduct}
                         clickFunc={(e) => window.location.reload()}
                     />
-                    {/* <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
-                        marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to={"/admin/update/" + newProduct._id} onClick={(e) => helpers.updateData(e, newProduct, category, API_URL, 'POST', setNewProduct, 'Item added to inventory')} style={{ textDecoration: 'none', cursor: 'pointer' }}>
-                            <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Save Item</Paper>
-                        </Link>
-                    </Grid> */}
-                    {/* <Grid item vertialalign={'baseline'} textAlign={'center'} fontWeight={300}
-                        marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                        <Link to={"/admin/update/" + newProduct._id} onClick={(e) => window.location.reload()} style={{ textDecoration: 'none', cursor: 'pointer' }}>
-                            <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Reset Form</Paper>
-                        </Link>
-                    </Grid> */}
                 </Grid>
             </Grid >
         </>
