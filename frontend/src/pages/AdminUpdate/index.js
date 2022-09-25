@@ -9,6 +9,7 @@ const AdminUpdate = () => {
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState([]);
     const [searchFilter, setSearchFilter] = useState([]);
+    const [radio, setRadio] = useState([]);
     const [fetchErr, setFetchErr] = useState(null);
 
     useEffect(() => {
@@ -30,7 +31,13 @@ const AdminUpdate = () => {
 
     const filterProducts = (id) => {
         console.log(typeof parseInt(id))
-        const filteredProd = products.filter(product => product._id === id);
+        let filteredProd;
+        if (typeof id !== 'number') {
+            filteredProd = products.filter(product => product.name === id);
+        } else {
+            filteredProd = products.filter(product => product._id === id);
+        }
+        // const filteredProd = products.filter(product => product._id === id);
         // update your state with filtered product
         console.log('filtered', filteredProd)
         // console.log(product, 'product')
@@ -80,7 +87,7 @@ const AdminUpdate = () => {
                     </Button>
                 </Grid>
             </Grid>
-            {(product[0] && searchFilter.length !== 0) ?
+            {(product[0]._id === searchFilter || product[0].name === searchFilter) ?
                 <Typography variant="h2" verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                     marginBottom={'1em'} marginTop={'1em'} color='#BB0011' fontSize={'32px'} letterSpacing={1.2}>
                     {`Search has found ${product[0].name}`}
