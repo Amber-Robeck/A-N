@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import ProductForm from '../../components/Admin/productForm';
 import { Button, Grid, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField } from '@mui/material'
 import QuickLinks from '../../components/Admin/QuickLinks';
+import { isSetAccessorDeclaration } from 'typescript';
 // import { useParams } from 'react-router-dom';
 
 const AdminUpdate = () => {
@@ -9,7 +10,7 @@ const AdminUpdate = () => {
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState([]);
     const [searchFilter, setSearchFilter] = useState([]);
-    const [radio, setRadio] = useState([]);
+    const [radio, setRadio] = useState(['id']);
     const [fetchErr, setFetchErr] = useState(null);
 
     useEffect(() => {
@@ -30,18 +31,20 @@ const AdminUpdate = () => {
     }, []);
 
     const filterProducts = (id) => {
-        console.log(typeof parseInt(id))
+        // console.log(typeof parseInt(id))
+        console.log(radio)
         let filteredProd;
-        if (typeof id !== 'number') {
-            filteredProd = products.filter(product => product.name === id);
-        } else {
+        if (radio === 'id') {
             filteredProd = products.filter(product => product._id === id);
+            return setProduct(filteredProd);
         }
-        // const filteredProd = products.filter(product => product._id === id);
-        // update your state with filtered product
-        console.log('filtered', filteredProd)
-        // console.log(product, 'product')
-        return setProduct(filteredProd);
+        else if (radio === 'name') {
+            filteredProd = products.filter(product => product.name === id);
+            return setProduct(filteredProd);
+        } else {
+            console.log('Please try again')
+        }
+
     };
     return (
         <>
@@ -65,10 +68,10 @@ const AdminUpdate = () => {
                             aria-labelledby="filter"
                             name="filter"
                             defaultValue={"id"}
-                            onChange={(e) => { }}
+                        // onChange={(e) => { setRadio(e) }}
                         >
-                            <FormControlLabel value="id" control={<Radio />} label="ID" />
-                            <FormControlLabel value="name" control={<Radio />} label="Name" />
+                            <FormControlLabel value="id" control={<Radio />} label="ID" onChange={(e) => { setRadio('id') }} />
+                            <FormControlLabel value="name" control={<Radio />} label="Name" onChange={(e) => { setRadio('name') }} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -78,8 +81,8 @@ const AdminUpdate = () => {
                         variant='outlined'
                         label='Search criteria'
                         name='filterResult'
-                        defaultValue={'Type to search'}
-                        onChange={(e) => { setSearchFilter(e.target.value) }}
+                        placeholder='Search by name or ID'
+                        onChange={(e) => { setSearchFilter(e.target.value); }}
                     />
                     <Button
                         onClick={(e) => { filterProducts(searchFilter) }}>
@@ -87,7 +90,7 @@ const AdminUpdate = () => {
                     </Button>
                 </Grid>
             </Grid>
-            {(product[0]._id === searchFilter || product[0].name === searchFilter) ?
+            {(product[0]?._id === searchFilter || product[0]?.name === searchFilter) ?
                 <Typography variant="h2" verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                     marginBottom={'1em'} marginTop={'1em'} color='#BB0011' fontSize={'32px'} letterSpacing={1.2}>
                     {`Search has found ${product[0].name}`}
