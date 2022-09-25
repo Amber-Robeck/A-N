@@ -80,10 +80,14 @@ const AdminUpdate = () => {
                     </Button>
                 </Grid>
             </Grid>
-            {product[0] &&
+            {(product[0] && searchFilter.length !== 0) ?
                 <Typography variant="h2" verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                     marginBottom={'1em'} marginTop={'1em'} color='#BB0011' fontSize={'32px'} letterSpacing={1.2}>
                     {`Search has found ${product[0].name}`}
+                </Typography> :
+                <Typography variant="h2" verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
+                    marginBottom={'1em'} marginTop={'1em'} color='#BB0011' fontSize={'32px'} letterSpacing={1.2}>
+                    {'Still looking for your items....'}
                 </Typography>}
         </>
 
