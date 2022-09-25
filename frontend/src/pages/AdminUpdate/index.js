@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
-// import ProductForm from '../../components/Admin/productForm';
 import { Button, Grid, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField } from '@mui/material'
 import QuickLinks from '../../components/Admin/QuickLinks';
-import { isSetAccessorDeclaration } from 'typescript';
-// import { useParams } from 'react-router-dom';
 
 const AdminUpdate = () => {
     const API_URL_ADMIN = 'http://localhost:5000/admin';
