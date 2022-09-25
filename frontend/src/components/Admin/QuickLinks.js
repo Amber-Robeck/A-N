@@ -26,12 +26,12 @@ const QuickLinks = () => {
                     <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">New item</Paper>
                 </Link>
             </Grid>
-            <Grid item verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
+            {/* <Grid item verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                 marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
                 <Link to="/admin/update" style={{ textDecoration: 'none' }}>
                     <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Update item</Paper>
                 </Link>
-            </Grid>
+            </Grid> */}
             <Grid item verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                 marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
                 <Link to="/admin/view" style={{ textDecoration: 'none' }}>
@@ -40,7 +40,7 @@ const QuickLinks = () => {
             </Grid>
             <Grid item verticalalign={'baseline'} textAlign={'center'} fontWeight={300}
                 marginBottom={'1em'} marginTop={'1em'} marginLeft={'.5rem'} color='#000' letterSpacing={1.2} width={'9rem'}>
-                <Link to="/admin/update/:prodid" style={{ textDecoration: 'none' }}>
+                <Link to="/admin/search" style={{ textDecoration: 'none' }}>
                     <Paper sx={{ padding: 2, border: 1, fontSize: 12 }} elevation={0} variant="outlined">Search</Paper>
                 </Link>
             </Grid>

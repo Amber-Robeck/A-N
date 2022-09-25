@@ -17,6 +17,7 @@ import Admin from './pages/Admin';
 import AdminView from './pages/AdminView';
 import AdminUpdate from './pages/AdminUpdate';
 import AdminNew from './pages/AdminNew';
+import AdminSearch from './pages/AdminSearch';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/create" element={<AdminNew />} />
         <Route path="/admin/view" element={<AdminView />} />
-        <Route path="/admin/update" element={<AdminUpdate />} />
+        <Route path="/admin/search" element={<AdminSearch />} />
         <Route path="/admin/update/:productId" element={<AdminUpdate />} />
       </Routes>
       <Footer />
